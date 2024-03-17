@@ -12,7 +12,7 @@ const URL = {
       'sort-by': 'release-date'
     },
     headers: {
-      'X-RapidAPI-Key': 'd53b690b17mshf0231f322f4034ap1d6de8jsn532c2abcca40',
+      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
       'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
   };
