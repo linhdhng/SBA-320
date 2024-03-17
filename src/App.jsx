@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Games from './component/Games'
+import Games from './component/Home'
 import Header from "./component/Header/Header"
 import RecentlyAdded from './pages/RecentlyAdded'
 import Trending from './pages/Trending'

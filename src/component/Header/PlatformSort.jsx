@@ -1,18 +1,49 @@
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+const options = {
+    method: 'GET',
+    url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+    headers: {
+      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  };
+  
+function getUniqueObjectsByProperty(array, property) {
+    const uniqueObjectsMap = {};
+    array.forEach(obj => {
+        const value = obj[property];
+        if (value) {
+            uniqueObjectsMap[value] = obj;
+        }
+    });
+
+    return Object.values(uniqueObjectsMap);
+}
 
 function PlatformSort() {
-  return (
-    <NavDropdown title="By Platform" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                            Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                            Something else here
-                        </NavDropdown.Item>
-    </NavDropdown>
-  )
+    const [result, setResult] = useState([]);
+
+    const fetchData = async () => {
+        const res = await axios.request(options);
+        console.log(res.data);
+        setResult(res.data)
+    }
+    
+    useEffect(() => {
+        fetchData();
+    }, []);
+    
+    const uniqueNames = getUniqueObjectsByProperty(result, 'platform')
+    
+    return (
+        <NavDropdown title="By Platform" id="navbarScrollingDropdown">
+            {uniqueNames.map((uniqueName) => (
+                <NavDropdown.Item key={uniqueName.id}  onClick={() => handleItemClick(uniqueName.platform)} >{uniqueName.platform}</NavDropdown.Item>
+            ))}
+        </NavDropdown>
+    )
 }
 
 export default PlatformSort
