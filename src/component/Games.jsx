@@ -9,7 +9,7 @@ const URL = {
     params: {
       platform: 'browser',
       category: 'mmorpg',
-      'sort-by': 'release-date'
+      'sort-by': 'alphabetical'
     },
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
@@ -35,7 +35,7 @@ function Games() {
       }, []);
 
     return (
-        <div>
+        <div className='content'>
             <h1>Data Fetching</h1>
             <ul>
                 {count.map((game) => {
