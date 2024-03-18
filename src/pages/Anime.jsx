@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
 
-const url = 'https://api.jikan.moe/v4/manga';
+const url = 'https://api.jikan.moe/v4/anime';
   
 
-function Manga() {
+function Anime() {
   const [count, setCount] = useState([])
 
   const getGame = async () => {
@@ -25,14 +25,15 @@ function Manga() {
     }, []);
   
   const loaded = () => {
+    
     return (
       <div className="container">
-        <h3>Manga Recommendations</h3>
+        <h3>Anime Recommendations</h3>
         <Container>
-          <Row md={7}>
-            {count.map((manga) => (
-            <Col key={manga.id} xs={12} sm={6} md={4} lg={3}> 
-              <div className='card-container'>
+            <Row md={7}>
+                {count.map((manga) => (
+                <Col key={manga.id} xs={12} sm={6} md={4} lg={3}> 
+                <div className='card-container'>
                     <OverlayTrigger 
                         delay={{ hide: 450, show: 300 }} 
                         overlay={(props) => ( 
@@ -52,11 +53,10 @@ function Manga() {
                         </Card>
                     </OverlayTrigger>
                 </div>
-            </Col>
-
-            ))}
-              </Row>
-    </Container>
+                </Col>
+                ))}
+            </Row>
+        </Container>
       </div>
     )
   }
@@ -70,4 +70,4 @@ function Manga() {
   return count ? loaded() : loading()
 }
 
-export default Manga
+export default Anime

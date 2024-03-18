@@ -28,6 +28,7 @@ function Header() {
                     <CategorySort />
                     <PlatformSort />
                     <Link className="nav-link" to="/manga">Manga</Link>
+                    <Link className="nav-link" to="/anime">Anime</Link>
                 </Nav>
                 
                 <SearchBar setResults={setResults}/>
