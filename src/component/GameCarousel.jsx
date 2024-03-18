@@ -35,16 +35,17 @@ function GameCarousel() {
 
     return (
         <div className='content' id='main'>
-            <h1>Recommendations</h1>
-            <Carousel data-bs-theme="dark">
+            <Carousel >
             {count.map((game) => (
               <Carousel.Item key={game.id} interval={1000}>
                 <img
-                  className="d-block w-80"
+                  className="d-block w-100"
                   src={game.thumbnail}
                   alt={`${game.title} thumbnail`}
+                  style={{ borderRadius: '15px' }}
+
                 />
-                <Carousel.Caption >
+                <Carousel.Caption style={{ color: 'white' }}>
                   <h3>{game.title}</h3>
                   <p>{game.short_description}</p>
                 </Carousel.Caption>
