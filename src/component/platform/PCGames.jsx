@@ -1,37 +1,37 @@
+import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
 
-const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser&category=mmorpg&sort-by=release-date';
-  const options = {
+const options = {
   method: 'GET',
+  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+  params: {platform: 'pc'},
   headers: {
     'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
     'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
   }
 };
-
-function RecentlyAdded() {
+function PCGames() {
   const [count, setCount] = useState([])
 
   const getGame = async () => {
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
-      setCount(result)
-    } catch (error) {
-      console.error(error);
-    }
+      try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      setCount(response.data)
+      } catch(err) {
+      console.log(err)
+      }
   }
+
   useEffect(() => {
       getGame();
     }, []);
-  
+
   const loaded = () => {
-    return (
-      <div className="container">
-        <h4>Recently Added</h4>
+    return(
+      <div className="container" id='pc'>
+        <h4>PC Games</h4>
         <div id="recent" className="recent_add" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
           {count.map((game) =>(
             <Card key={game.id} style={{ width: '18rem' }}>
@@ -50,13 +50,13 @@ function RecentlyAdded() {
     )
   }
 
-  //Function for when data doesnt exist
   const loading = () => {
     return <h1>Loading...</h1>
   }
 
   //Ternary operator to return function 
   return count ? loaded() : loading()
+
 }
 
-export default RecentlyAdded
+export default PCGames

@@ -1,11 +1,11 @@
 
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import GameCarousel from './component/GameCarousel'
+import GameCarousel from './component/hero/GameCarousel'
 import Header from "./component/Header"
 import RecentlyAdded from './pages/RecentlyAdded'
 import Trending from './pages/Trending'
-import SignIn from './component/SignIn'
+import SignIn from './component/hero/SignIn'
 
 function App() {
   return (
@@ -15,8 +15,14 @@ function App() {
         <GameCarousel />
         <SignIn />
       </div>
-      <RecentlyAdded />
-      <Trending />
+      <Routes>
+        <Route path='/' Component={<GameCarousel/>}/>
+      </Routes>
+      <div className='section2'>
+        <Trending/>
+        <RecentlyAdded />
+      </div>
+      
     </>
   )
 }

@@ -1,12 +1,15 @@
-
+import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import SearchBar from './SearchBar';
+import {SearchBar} from './SearchBar/SearchBar';
+import { SearchResultsList } from './SearchBar/SearchResultList';
 import CategorySort from './CategorySort';
-import PlatformSort from './PlatformSort';
+import PlatformSort from './platform/PlatformSort';
 import { HashLink as Link } from 'react-router-hash-link';
+import { Route, Routes } from 'react-router-dom';
 function Header() {
+    const [results, setResults] = useState([]);
   return (
     <Navbar fixed="top"  expand="lg" className="bg-body-tertiary">
         <Container fluid>
@@ -25,7 +28,8 @@ function Header() {
                     <PlatformSort />
                 </Nav>
                 
-                <SearchBar />
+                <SearchBar setResults={setResults}/>
+                {results && results.length > 0 && <SearchResultsList results={results}/>}
             </Navbar.Collapse>
         </Container>
     </Navbar>

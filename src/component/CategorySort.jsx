@@ -1,7 +1,7 @@
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const options = {
     method: 'GET',
     url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
@@ -43,7 +43,7 @@ function CategorySort() {
             {uniqueNames.map((uniqueName) => (
                 <NavDropdown.Item key={uniqueName.id}>
                     <Link className="nav-link" to={`/new-page?category=${uniqueName.genre}`}>
-                        {uniqueName.genre}
+                    {uniqueName.genre}
                     </Link>
                 </NavDropdown.Item>
             ))}
