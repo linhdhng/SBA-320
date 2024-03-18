@@ -9,10 +9,11 @@ function App() {
   return (
     <>
       <Header />
-      <Home />
+
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/category/:genre' element={<PCGames />} />
+        <Route path='/pc' element={<PCGames/>} />
         <Route path='/manga' element={<Manga />}/>
       </Routes>
 
