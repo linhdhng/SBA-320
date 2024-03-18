@@ -8,7 +8,9 @@
   <li>HashLink from React Router for navigation within the home page</li>
   <li>React Router DOM for navigation between pages</li>
 </ul>
-<p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> <b>Get the key to this API here <em>https://rapidapi.com/digiwalls/api/free-to-play-games-database</em></b>, and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . 
+<p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> <br>
+  <b>Get the key to this API here <em>https://rapidapi.com/digiwalls/api/free-to-play-games-database</em></b>, <br>
+  and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . 
   Here's an overview of the functionalities:
   <img width="947" alt="Screenshot 2024-03-18 092022" src="https://github.com/linhdhng/SBA-320/assets/153128184/75aab9b5-df74-48f8-88ec-c029204ea167">
 </p>
@@ -28,6 +30,6 @@
 ☑️carousel   ☑️Sticky nav  ☑️Tooltips(Anime and Manga page)
 
 <h3>Things to Improve On</h3>
-❤️ Favorite button and a page where user can view their favorited items
-💬 A more well developed search engine page
+❤️ Favorite button and a page where user can view their favorited items <br>
+💬 A more well developed search engine page<br>
 🌐 Sign In page and Sign Up page
