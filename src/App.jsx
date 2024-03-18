@@ -1,28 +1,21 @@
 
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import GameCarousel from './component/hero/GameCarousel'
-import Header from "./component/Header"
-import RecentlyAdded from './pages/RecentlyAdded'
-import Trending from './pages/Trending'
-import SignIn from './component/hero/SignIn'
-
+import Header from "./Header"
+import Home from './pages/Home'
+import PCGames from './component/platform/PCGames'
+import Manga from './pages/Manga'
 function App() {
   return (
     <>
       <Header />
-      <div className='hero'>
-        <GameCarousel />
-        <SignIn />
-      </div>
+      <Home />
       <Routes>
-        <Route path='/' Component={<GameCarousel/>}/>
+        <Route path='/' element={<Home />}/>
+        <Route path='/category/:genre' element={<PCGames />} />
+        <Route path='/manga' element={<Manga />}/>
       </Routes>
-      <div className='section2'>
-        <Trending/>
-        <RecentlyAdded />
-      </div>
-      
+
     </>
   )
 }

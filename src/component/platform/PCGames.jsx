@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-
-const options = {
-  method: 'GET',
-  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-  params: {platform: 'pc'},
-  headers: {
-    'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-  }
-};
+import { useParams } from 'react-router-dom';
 function PCGames() {
-  const [count, setCount] = useState([])
-
+  const [count, setCount] = useState('null')
+  const { genre } = useParams
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genre}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  };
   const getGame = async () => {
       try {
-      const response = await axios.request(options);
-      console.log(response.data);
-      setCount(response.data)
+      const response = await fetch(url, options);
+      const result = await response.json()
+      setCount(result)
       } catch(err) {
       console.log(err)
       }
@@ -32,8 +31,9 @@ function PCGames() {
     return(
       <div className="container" id='pc'>
         <h4>PC Games</h4>
+        
         <div id="recent" className="recent_add" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-          {count.map((game) =>(
+          {/* {count.map((game) =>(
             <Card key={game.id} style={{ width: '18rem' }}>
             <Card.Img variant="top" src={game.thumbnail}/>
             <Card.Body>
@@ -44,7 +44,7 @@ function PCGames() {
               <Button href='https://www.freetogame.com/`${game.title}`' variant='success'>Play Now</Button>
             </Card.Body>
           </Card>
-          ))}
+          ))} */}
         </div>
       </div>
     )

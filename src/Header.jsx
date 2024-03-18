@@ -2,12 +2,13 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {SearchBar} from './SearchBar/SearchBar';
-import { SearchResultsList } from './SearchBar/SearchResultList';
-import CategorySort from './CategorySort';
-import PlatformSort from './platform/PlatformSort';
-import { HashLink as Link } from 'react-router-hash-link';
-import { Route, Routes } from 'react-router-dom';
+import {SearchBar} from './component/SearchBar/SearchBar';
+import { SearchResultsList } from './component/SearchBar/SearchResultList';
+import CategorySort from './component/CategorySort';
+import PlatformSort from './component/platform/PlatformSort';
+import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
+
 function Header() {
     const [results, setResults] = useState([]);
   return (
@@ -21,9 +22,9 @@ function Header() {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Link className="nav-link" to="#main">Home</Link>
-                    <Link className="nav-link" to="#recent">Recently Added</Link>
-                    <Link className="nav-link" to="#trending">Trending</Link>
+                    <HashLink className="nav-link" to="#main">Home</HashLink>
+                    <HashLink className="nav-link" to="#recent">Recently Added</HashLink>
+                    <HashLink className="nav-link" to="#trending">Trending</HashLink>
                     <CategorySort />
                     <PlatformSort />
                 </Nav>
