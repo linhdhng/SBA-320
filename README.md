@@ -8,7 +8,8 @@
   <li>HashLink from React Router for navigation within the home page</li>
   <li>React Router DOM for navigation between pages</li>
 </ul>
-<p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> (API key required), and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . Here's an overview of the functionalities:
+<p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> <b>Get the key to this API here <em>https://rapidapi.com/digiwalls/api/free-to-play-games-database</em></b>, and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . 
+  Here's an overview of the functionalities:
   <img width="947" alt="Screenshot 2024-03-18 092022" src="https://github.com/linhdhng/SBA-320/assets/153128184/75aab9b5-df74-48f8-88ec-c029204ea167">
 </p>
 <h3>Project Description</h3>
@@ -18,5 +19,15 @@
   <li>Each game is displayed using Card components with an image, title, and short description.</li>
   <li>A Form component is included for user sign-in.</li>
   <li>Clicking the "Play Now" button opens a link to play the game.</li>
-  <li>A heart icon is added next to the "Play Now" button to allow users to add the game to their favorites. Hovering over the heart icon displays a small message "Add to favorites".</li>
+  <li>User can look up a game with the search engine in the navigation bar</li>
+  <li>USer can navigate the component within homepage by clicking through the link on navbar</li>
+  <li>Most of the links on nav bar will work (unless they don't, this need more time to finish)</li>
 </ul>
+
+<h3>Bonus Features</h3>
+☑️carousel   ☑️Sticky nav  ☑️Tooltips(Anime and Manga page)
+
+<h3>Things to Improve On</h3>
+❤️ Favorite button and a page where user can view their favorited items
+💬 A more well developed search engine page
+🌐 Sign In page and Sign Up page
