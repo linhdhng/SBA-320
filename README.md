@@ -7,7 +7,7 @@
   <li>HashLink from React Router for navigation within the home page</li>
   <li>React Router DOM for navigation between pages</li>
 </ul>
-<p>In this project, data is fetched from the API provided by <em>WEBSITE.url</em>, which requires an API key. Here's an overview of the functionalities:</p>
+<p>In this project, data is fetched from the API provided by <em>https://www.freetogame.com/</em>, which requires an API key. Here's an overview of the functionalities:</p>
 <ul>
   <li>In the navbar, data is fetched from the API, mapped through the results, and unique game categories are returned in the dropdown menu.</li>
   <li>On the home page, React Bootstrap Carousel is used to display recently added games.</li>
