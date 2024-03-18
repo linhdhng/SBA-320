@@ -8,9 +8,16 @@
   <li>HashLink from React Router for navigation within the home page</li>
   <li>React Router DOM for navigation between pages</li>
 </ul>
+
+<h3>Brief Summary</h3>
+<p> This is a small project for entertainment purposes. User can find free games, free manga, and free anime source here.</p>
 <p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> <br>
   <b>Get the key to this API here <em>https://rapidapi.com/digiwalls/api/free-to-play-games-database</em></b>, <br>
-  and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . 
+  and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . <br>
+  Ulitized the following method, along with AXIOS to retrieve and filter data <br>
+  ☑️useEffect - loading** <br>
+  ☑️useState
+
   Here's an overview of the functionalities:
   <img width="947" alt="Screenshot 2024-03-18 092022" src="https://github.com/linhdhng/SBA-320/assets/153128184/75aab9b5-df74-48f8-88ec-c029204ea167">
 </p>
