@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Games from './component/Home'
-import Header from "./component/Header/Header"
+import GameCarousel from './component/GameCarousel'
+import Header from "./component/Header"
 import RecentlyAdded from './pages/RecentlyAdded'
 import Trending from './pages/Trending'
 
@@ -11,12 +11,17 @@ function App() {
 
   return (
     <>
-      <Header /> 
-      <Routes>
-        <Route path='/main' element={<Games />} />
-        <Route path='/recent'element={<RecentlyAdded />}/>
-        <Route path='/trending' element={<Trending />} />
-      </Routes>
+      <Header />
+       
+        <GameCarousel />
+        <RecentlyAdded />
+        <Trending />
+
+      {/* <Routes>
+        <Route path='/main' element={<GameCarousel />} />
+        <Route path='/main'element={<RecentlyAdded />}/>
+        <Route path='/main' element={<Trending />} />
+      </Routes> */}
     </>
   )
 }

@@ -5,11 +5,10 @@ import axios from 'axios';
 
 const URL = {
     method: 'GET',
-    url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+    url: 'https://free-to-play-games-database.p.rapidapi.com/api/filter',
     params: {
-      platform: 'browser',
-      category: 'shooter',
-      'sort-by': 'alphabetical'
+      tag: '3d.shooter.sci-fi.pvp',
+      platform: 'pc'
     },
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
@@ -17,7 +16,7 @@ const URL = {
     }
   };
 
-function Games() {
+function GameCarousel() {
     const [count, setCount] = useState([])
 
     const getGame = async () => {
@@ -35,13 +34,13 @@ function Games() {
       }, []);
 
     return (
-        <div className='content'>
-            <h1>Data Fetching</h1>
+        <div className='content' id='main'>
+            <h1>Recommendations</h1>
             <Carousel data-bs-theme="dark">
             {count.map((game) => (
               <Carousel.Item key={game.id} interval={1000}>
                 <img
-                  className="d-block w-100"
+                  className="d-block w-80"
                   src={game.thumbnail}
                   alt={`${game.title} thumbnail`}
                 />
@@ -56,5 +55,5 @@ function Games() {
     )
 }
 
-export default Games;
+export default GameCarousel;
 
