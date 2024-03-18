@@ -11,6 +11,7 @@
 <p>In this project, list of game data is fetched from the API provided by <em>https://www.freetogame.com/</em> (API key required), and list of manga and anime is fetched from <em>https://docs.api.jikan.moe/#tag/manga</em> by Jikan . Here's an overview of the functionalities:
   <img width="947" alt="Screenshot 2024-03-18 092022" src="https://github.com/linhdhng/SBA-320/assets/153128184/75aab9b5-df74-48f8-88ec-c029204ea167">
 </p>
+<h3>Project Description</h3>
 <ul>
   <li>In the navbar, data is fetched from the API, mapped through the results, and unique game categories are returned in the dropdown menu.</li>
   <li>On the home page, React Bootstrap Carousel is used to display recently added games.</li>
