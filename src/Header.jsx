@@ -14,7 +14,7 @@ function Header() {
   return (
     <Navbar fixed="top"  expand="lg" className="bg-body-tertiary">
         <Container fluid>
-            <Navbar.Brand href="/">Game2Play</Navbar.Brand>
+            <HashLink className="navbar-brand" to="#">Game2Play</HashLink>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <Nav 
@@ -22,7 +22,7 @@ function Header() {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <HashLink className="nav-link" to="#">Home</HashLink>
+                    <HashLink className="nav-link" to="/">Home</HashLink>
                     <HashLink className="nav-link" to="#recent">Recently Added</HashLink>
                     <HashLink className="nav-link" to="#trending">Trending</HashLink>
                     <CategorySort />
