@@ -1,4 +1,4 @@
-<h1>FREE2GAME FRONT END WEBSITE README</h1>
+<h1>FREE2GAME FRONT END WEBSITE </h1>
 <p>The technologies used in this project include:</p>
 <ul>
   <li>React Bootstrap Carousel</li>
