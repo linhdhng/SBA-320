@@ -33,27 +33,36 @@ function GameCarousel() {
         getGame();
       }, []);
 
-    return (
-        <div className='content' id='main'>
-            <Carousel >
-            {count.map((game) => (
-              <Carousel.Item key={game.id} interval={1000}>
-                <img
-                  className="d-block w-100"
-                  src={game.thumbnail}
-                  alt={`${game.title} thumbnail`}
-                  style={{ borderRadius: '15px' }}
+    const loaded = () => {
+      return (
+          <div className='content' id='main'>
+              <Carousel >
+              {count.map((game) => (
+                <Carousel.Item key={game.id} interval={1000}>
+                  <img
+                    className="d-block w-100"
+                    src={game.thumbnail}
+                    alt={`${game.title} thumbnail`}
+                    style={{ borderRadius: '15px' }}
 
-                />
-                <Carousel.Caption style={{ color: 'white' }}>
-                  <h3>{game.title}</h3>
-                  <p>{game.short_description}</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            ))}
-            </Carousel>
-        </div>
-    )
+                  />
+                  <Carousel.Caption style={{ color: 'white' }}>
+                    <h3>{game.title}</h3>
+                    <p>{game.short_description}</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              ))}
+              </Carousel>
+          </div>
+      )
+    }
+
+    //Function for when data doesnt exist
+    const loading = () => {
+      return <h1>Loading...</h1>
+    }
+    //Ternary operator to return function 
+    return count ? loaded() : loading()
 }
 
 export default GameCarousel;

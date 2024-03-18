@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Favourite from '../component/Favourite';
 import { useState, useEffect } from 'react';
 
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser&category=mmorpg&sort-by=release-date';
@@ -28,44 +28,36 @@ function RecentlyAdded() {
   useEffect(() => {
       getGame();
     }, []);
-
-  return (
-    <div className="container">
-      <h4>Recently Added</h4>
-      <div id="recent" className="recent_add" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-        {count.map((game) =>(
-          <Card key={game.id} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={game.thumbnail}/>
-          <Card.Body>
-            <Card.Title >{game.title}</Card.Title>
-            <Card.Text style={{ textAlign: 'left' }}>
-              {game.short_description}
-            </Card.Text>
-            <Button href='https://www.freetogame.com/`${game.title}`' variant='success'>Play Now</Button>
-          </Card.Body>
-        </Card>
-          // <Card key={game.id} style={{ width: '18rem' }}>
-          //   <Card.Img variant="top" src={game.thumbnail} alt={`${game.title} thumbnail`}/>
-          //   <Card.Body>
-          //     <Card.Title >{game.title}</Card.Title>
-          //     <Card.Text>
-          //       {game.short_description}
-          //     </Card.Text>
-          //   </Card.Body>
-          //   <ListGroup className="list-group-flush">
-          //     <ListGroup.Item>{game.genre}</ListGroup.Item>
-          //     <ListGroup.Item>{game.developer}</ListGroup.Item>
-          //     <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          //   </ListGroup>
-          //   <Card.Body>
-          //     <Card.Link href="#">Card Link</Card.Link>
-          //     <Card.Link href="#">Another Link</Card.Link>
-          //   </Card.Body>
-          // </Card>
-        ))}
+  
+  const loaded = () => {
+    return (
+      <div className="container">
+        <h4>Recently Added</h4>
+        <div id="recent" className="recent_add" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+          {count.map((game) =>(
+            <Card key={game.id} style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={game.thumbnail}/>
+            <Card.Body>
+              <Card.Title >{game.title}</Card.Title>
+              <Card.Text style={{ textAlign: 'left' }}>
+                {game.short_description}
+              </Card.Text>
+              <Button href='https://www.freetogame.com/`${game.title}`' variant='success'>Play Now</Button>
+            </Card.Body>
+          </Card>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  //Function for when data doesnt exist
+  const loading = () => {
+    return <h1>Loading...</h1>
+  }
+
+  //Ternary operator to return function 
+  return count ? loaded() : loading()
 }
 
 export default RecentlyAdded
